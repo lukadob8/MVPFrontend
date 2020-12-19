@@ -6,6 +6,8 @@ import LoginPage from "../views/Login.vue";
 import DiscoverPage from "../views/Discover.vue";
 import ProfilePage from "../views/Profile.vue";
 import EditPage from "../views/EditProfile.vue";
+import AnswerPage from "../views/Answers.vue";
+import BookmarkPage from "../views/ShowBookmarks.vue"
 
 Vue.use(VueRouter);
 
@@ -39,6 +41,16 @@ const routes = [
     path: "/edit",
     name: "profile-edit",
     component: EditPage
+  },
+  {
+    path: "/answers",
+    name: "answers-page",
+    component: AnswerPage
+  },
+  {
+    path: "/bookmarks",
+    name: "bookmarks",
+    component: BookmarkPage
   }
 ];
 

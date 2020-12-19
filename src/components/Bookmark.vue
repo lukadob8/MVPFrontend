@@ -77,6 +77,9 @@ import cookies from 'vue-cookies'
                 })
             }
         },
+        mounted () {
+            this.checkBookmarks();
+        },
     }
 </script>
 

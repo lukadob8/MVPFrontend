@@ -1,74 +1,65 @@
 <template>
     <div>
-        <!-- <header></header> -->
-        <div v-for="question in questions" :key="question.id">
+        <v-btn @click="getBookmarks()">Your Bookmarks</v-btn>
+        <div v-for="bookmark in bookmarks" :key="bookmark.id">
             <v-card width="500" class="mx-auto mt-5">
                 <v-card-title>
-                   Subject: {{ question.title }}
+                   Subject: {{ bookmark.title }}
                 </v-card-title>
                 <v-card-subtitle>
-                   Asked by: {{ question.username }}
+                   Asked by: {{ bookmark.username }}
                 </v-card-subtitle>
                 <v-card-text>
-                   Question: {{ question.content }}
+                   Question: {{ bookmark.content }}
                 </v-card-text>
                 <v-divider></v-divider>
                 <v-card-text>
-                  Asked On: {{ question.createdAt }}
+                  Asked On: {{ bookmark.createdAt }}
                 </v-card-text>
                 <v-divider></v-divider>
-                <v-card-actions>
+                <!-- <v-card-actions>
                     <answers :questionId="question.questionId"> </answers>
                     <v-spacer></v-spacer>
                     <bookmark :questionId="question.questionId"> </bookmark>
                     <v-spacer></v-spacer>
                     <v-btn>Answer</v-btn>
-                </v-card-actions>
+                </v-card-actions> -->
             </v-card>
 
         </div>
-
     </div>
 </template>
 
 <script>
-import axios from 'axios'
-import Bookmark from '../components/Bookmark.vue'
-// import Header from '../components/Header.vue'
-import Answers from "../views/Answers.vue"
-
+import axios from "axios"
+import cookies from "vue-cookies"
 
     export default {
-        name: "discovery-page",
-        components: {
-            Bookmark,
-            // Header,
-            Answers,
-        },
+        name: "show-bookmarks",
         data() {
             return {
-                questions: []
+                bookmarks: [],
             }
         },
         methods: {
-            showQuestions: function() {
+            getBookmarks: function() {
                 axios.request({
                     method: "GET",
-                    url: "http://127.0.0.1:5000/api/questions",
+                    url: "http://127.0.0.1:5000/api/bookmarks",
+                    params: {
+                        loginToken: cookies.get("session")
+                    }
                 }).then((response) => {
                     console.log(response)
-                    this.questions = response.data
+                    this.bookmarks = response.data
                 }).catch((error) => {
                     console.log(error)
                 })
             }
         },
-        mounted () {
-            this.showQuestions();
-        },
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
 
 </style>
