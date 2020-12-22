@@ -1,5 +1,7 @@
 <template>
     <div>
+        <page-header />
+        <br>
         <v-card width="600" class="mx-auto mt-5">
             <v-card-title>Your Profile</v-card-title>
             <v-divider></v-divider>
@@ -11,17 +13,22 @@
                 <v-btn @click="toEdit()">Edit</v-btn>
             </v-card-actions>
         </v-card>
+        <br>
+        <user-questions> </user-questions>
     </div>
 </template>
 
 <script>
 import axios from 'axios'
 import cookies from 'vue-cookies'
+import UserQuestions from "../components/UserQuestions.vue"
+import PageHeader from "../components/Header.vue"
 
     export default {
         name: "profile-page",
         components: {
-            
+            UserQuestions,
+            PageHeader,
         },
         data() {
             return {

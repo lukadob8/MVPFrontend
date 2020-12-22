@@ -7,7 +7,8 @@ import DiscoverPage from "../views/Discover.vue";
 import ProfilePage from "../views/Profile.vue";
 import EditPage from "../views/EditProfile.vue";
 import AnswerPage from "../views/Answers.vue";
-import BookmarkPage from "../views/ShowBookmarks.vue"
+import BookmarkPage from "../views/ShowBookmarks.vue";
+import AskPage from "../views/Ask.vue";
 
 Vue.use(VueRouter);
 
@@ -43,7 +44,7 @@ const routes = [
     component: EditPage
   },
   {
-    path: "/answers",
+    path: "/answers/:id",
     name: "answers-page",
     component: AnswerPage
   },
@@ -51,6 +52,11 @@ const routes = [
     path: "/bookmarks",
     name: "bookmarks",
     component: BookmarkPage
+  },
+  {
+    path: "/ask",
+    name: "ask-page",
+    component: AskPage
   }
 ];
 

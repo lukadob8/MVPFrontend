@@ -1,13 +1,15 @@
 <template>
     <div>
-        <v-app-bar>
-            <v-btn>Profile</v-btn>
+        <v-app-bar class="orange">
+            <v-btn @click="goProfile()">Profile</v-btn>
             <v-spacer></v-spacer>
-            <v-bt>Discover</v-bt>
+            <v-btn @click="goAsk()">Ask</v-btn>
             <v-spacer></v-spacer>
-            <v-btn>Bookmarks</v-btn>
+            <v-btn @click="goDiscover()">Discover</v-btn>
             <v-spacer></v-spacer>
-            <v-btn>Logout</v-btn>
+            <v-btn @click="goBookmarks()">Bookmarks</v-btn>
+            <v-spacer></v-spacer>
+            <v-btn @click="logoutUser()">Logout</v-btn>
         </v-app-bar>
     </div>
 </template>
@@ -17,7 +19,7 @@ import axios from 'axios'
 import cookies from 'vue-cookies'
 
     export default {
-        name: "header",
+        name: "page-header",
         methods: {
             goProfile: function() {
                 this.$router.push({name: "profile-page"})
@@ -28,7 +30,11 @@ import cookies from 'vue-cookies'
             },
 
             goBookmarks: function() {
-                this.$router.push({name: "bookmarks-page"})
+                this.$router.push({name: "bookmarks"})
+            },
+
+            goAsk: function() {
+                this.$router.push({name: "ask-page"})
             },
 
             logoutUser: function() {

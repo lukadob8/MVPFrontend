@@ -1,5 +1,7 @@
 <template>
     <div>
+        <page-header />
+        <br>
         <v-btn @click="getBookmarks()">Your Bookmarks</v-btn>
         <div v-for="bookmark in bookmarks" :key="bookmark.id">
             <v-card width="500" class="mx-auto mt-5">
@@ -17,13 +19,12 @@
                   Asked On: {{ bookmark.createdAt }}
                 </v-card-text>
                 <v-divider></v-divider>
-                <!-- <v-card-actions>
-                    <answers :questionId="question.questionId"> </answers>
+                <v-card-actions>
+                    <v-btn @click="$router.push({name: 'answers-page', params:{id:bookmark.questionId}})">Answer</v-btn>
                     <v-spacer></v-spacer>
-                    <bookmark :questionId="question.questionId"> </bookmark>
-                    <v-spacer></v-spacer>
-                    <v-btn>Answer</v-btn>
-                </v-card-actions> -->
+                    <bookmark :questionId="bookmark.questionId"> </bookmark>
+                    
+                </v-card-actions>
             </v-card>
 
         </div>
@@ -33,6 +34,8 @@
 <script>
 import axios from "axios"
 import cookies from "vue-cookies"
+import Bookmark from "../components/Bookmark.vue"
+import PageHeader from "../components/Header.vue"
 
     export default {
         name: "show-bookmarks",
@@ -40,6 +43,10 @@ import cookies from "vue-cookies"
             return {
                 bookmarks: [],
             }
+        },
+        components: {
+            Bookmark,
+            PageHeader,
         },
         methods: {
             getBookmarks: function() {

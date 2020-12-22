@@ -1,5 +1,7 @@
 <template>
     <div>
+        <page-header />
+        <br>
         <v-card-actions>
             <v-btn v-if="editing == false" @click="editing = !editing">Edit Profile</v-btn>
             <v-spacer></v-spacer>
@@ -42,9 +44,13 @@
 <script>
 import axios from 'axios'
 import cookies from 'vue-cookies'
+import PageHeader from "../components/Header.vue"
 
     export default {
         name: "edit-profile",
+        components: {
+            PageHeader,
+        },
         data() {
             return {
                 email: "",

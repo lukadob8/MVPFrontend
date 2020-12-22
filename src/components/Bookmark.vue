@@ -1,7 +1,7 @@
 <template>
     <div>
-        <v-btn @click="addBookmark()" v-if="isBookmarked == false">Bookmark</v-btn>
-        <v-btn @click="removeBookmark()" v-if="isBookmarked == true">Remove</v-btn>
+        <v-btn @click="addBookmark()" v-if="isBookmarked == false" class="orange lighten-3">Bookmark</v-btn>
+        <v-btn @click="removeBookmark()" v-if="isBookmarked == true" class="orange lighten-3">Remove</v-btn>
     </div>
 </template>
 
