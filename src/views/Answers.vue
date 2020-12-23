@@ -25,6 +25,8 @@
         ></v-textarea>
         <v-divider></v-divider>
         <v-btn @click="postAnswer()" class="orange lighten-3">Submit</v-btn>
+        <v-divider></v-divider>
+        <v-card-text>{{message}}</v-card-text>
       </v-card>
       <br>
       <h2 class="text-center orange--text text--darken-4">Answers</h2>
@@ -67,6 +69,7 @@ export default {
       userAnswer: "",
       answers: [],
       question: {},
+      message: "",
 
       questionId: this.$route.params.id
     };
@@ -85,6 +88,8 @@ export default {
         })
         .then(response => {
           console.log(response);
+          this.userAnswer = ""
+          this.message = "Answer successfully posted!"
         })
         .catch(error => {
           console.log(error);

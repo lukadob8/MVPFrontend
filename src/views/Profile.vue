@@ -10,7 +10,7 @@
             <v-card-text>birthdate: {{ birthdate }}</v-card-text>
             <v-divider></v-divider>
             <v-card-actions>
-                <v-btn @click="toEdit()">Edit</v-btn>
+                <v-btn @click="toEdit()" class="orange lighten-3">Edit</v-btn>
             </v-card-actions>
         </v-card>
         <br>

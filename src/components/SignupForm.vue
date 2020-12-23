@@ -14,11 +14,11 @@
       </v-card-text>
       <v-divider></v-divider>
       <v-card-actions>
-        <v-btn @click="addUser()">Register</v-btn>
+        <v-btn @click="addUser()" class="orange lighten-3">Register</v-btn>
         <v-spacer></v-spacer>
-        <v-btn @click="goDiscover()">Explore</v-btn>
+        <v-btn @click="goDiscover()" class="orange lighten-3">Explore</v-btn>
         <v-spacer></v-spacer>
-        <v-btn @click="goLogin()">Login</v-btn>
+        <v-btn @click="goLogin()" class="orange lighten-3">Login</v-btn>
       </v-card-actions>
     </v-card>
   </v-main>

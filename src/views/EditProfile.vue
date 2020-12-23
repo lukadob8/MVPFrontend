@@ -3,9 +3,9 @@
         <page-header />
         <br>
         <v-card-actions>
-            <v-btn v-if="editing == false" @click="editing = !editing">Edit Profile</v-btn>
+            <v-btn v-if="editing == false" @click="editing = !editing" class="orange lighten-3">Edit Profile</v-btn>
             <v-spacer></v-spacer>
-            <v-btn v-if="deleting == false" @click="deleting = !deleting">Delete Profile</v-btn>
+            <v-btn v-if="deleting == false" @click="deleting = !deleting" class="orange lighten-3">Delete Profile</v-btn>
         </v-card-actions>
         <v-card width="600" class="mx-auto mt-5" v-if="editing == true">
           <v-card-title>
@@ -21,7 +21,7 @@
           </v-card-text>
           <v-divider></v-divider>
           <v-card-actions>
-              <v-btn @click="editProfile()">Edit</v-btn>
+              <v-btn @click="editProfile()" class="orange lighten-3">Edit</v-btn>
           </v-card-actions>
       </v-card>
       <v-card width="600" class="mx-auto mt-5" v-if="deleting == true">
@@ -35,7 +35,7 @@
           </v-card-text>
           <v-divider></v-divider>
           <v-card-actions>
-              <v-btn @click="deleteProfile()">Delete</v-btn>
+              <v-btn @click="deleteProfile()" class="orange lighten-3">Delete</v-btn>
           </v-card-actions>
       </v-card>
     </div>

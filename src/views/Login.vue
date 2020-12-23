@@ -12,9 +12,9 @@
       </v-card-text>
       <v-divider></v-divider>
       <v-card-actions>
-        <v-btn @click="goSignup()">Register</v-btn>
+        <v-btn @click="goSignup()" class="orange lighten-3">Register</v-btn>
         <v-spacer></v-spacer>
-        <v-btn @click="loginUser()">Login</v-btn>
+        <v-btn @click="loginUser()" class="orange lighten-3">Login</v-btn>
       </v-card-actions>
     </v-card>
   </div>

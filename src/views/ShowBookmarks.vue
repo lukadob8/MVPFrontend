@@ -2,25 +2,25 @@
     <div>
         <page-header />
         <br>
-        <v-btn @click="getBookmarks()">Your Bookmarks</v-btn>
+        <v-btn @click="getBookmarks()" class="orange lighten-3">Your Bookmarks</v-btn>
         <div v-for="bookmark in bookmarks" :key="bookmark.id">
             <v-card width="500" class="mx-auto mt-5">
-                <v-card-title>
+                <v-card-text>
                    Subject: {{ bookmark.title }}
-                </v-card-title>
+                </v-card-text>
                 <v-card-subtitle>
                    Asked by: {{ bookmark.username }}
                 </v-card-subtitle>
-                <v-card-text>
+                <v-card-title>
                    Question: {{ bookmark.content }}
-                </v-card-text>
+                </v-card-title>
                 <v-divider></v-divider>
                 <v-card-text>
                   Asked On: {{ bookmark.createdAt }}
                 </v-card-text>
                 <v-divider></v-divider>
                 <v-card-actions>
-                    <v-btn @click="$router.push({name: 'answers-page', params:{id:bookmark.questionId}})">Answer</v-btn>
+                    <v-btn @click="$router.push({name: 'answers-page', params:{id:bookmark.questionId}})" class="orange lighten-3">Answer</v-btn>
                     <v-spacer></v-spacer>
                     <bookmark :questionId="bookmark.questionId"> </bookmark>
                     
@@ -58,7 +58,7 @@ import PageHeader from "../components/Header.vue"
                     }
                 }).then((response) => {
                     console.log(response)
-                    this.bookmarks = response.data
+                    this.bookmarks = response.data.reverse()
                 }).catch((error) => {
                     console.log(error)
                 })

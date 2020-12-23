@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-btn v-if="show == false" @click="userQuestions()">Your Questions</v-btn>
-    <v-btn v-if="show == true" @click="show = false">Hide</v-btn>
+    <v-btn v-if="show == false" @click="userQuestions()" class="orange lighten-3">Your Questions</v-btn>
+    <v-btn v-if="show == true" @click="show = false" class="orange lighten-3">Hide</v-btn>
     <div v-if="show == true">
       <div v-for="question in questions" :key="question.questionId">
         <v-card width="500" class="mx-auto mt-5">
@@ -13,10 +13,11 @@
           <v-divider></v-divider>
           <v-card-actions>
             <v-btn
+              class="orange lighten-3"
               @click="$router.push({name: 'answers-page', params:{id:question.questionId}})"
             >Answer</v-btn>
             <!-- <v-spacer></v-spacer>
-            <bookmark :questionId="question.questionId"></bookmark> -->
+            <bookmark :questionId="question.questionId"></bookmark>-->
           </v-card-actions>
         </v-card>
       </div>
@@ -27,7 +28,6 @@
 <script>
 import axios from "axios";
 import cookies from "vue-cookies";
-
 
 export default {
   name: "user-questions",
@@ -53,7 +53,7 @@ export default {
           this.show = true;
         })
         .catch(error => {
-            console.log(error)
+          console.log(error);
         });
     }
   }
